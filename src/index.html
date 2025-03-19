@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <link rel="stylesheet" href="styles.css" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Agenda</title>
+  </head>
+  <body>
+
+    <section id="presentation">
+      <div class="container">
+        <div class="inner">
+          <header class="header-container">
+            <h1 class="title">Calendar</h1>
+            <div class="button-container">
+                <button id="prevWeek" class="button">
+                  <p class="button-text"><</p>
+                </button>
+                <button id="today" class="button">
+                  <p class="button-text">Today</p>
+                </button>
+                <button id="nextWeek" class="button">
+                  <p class="button-text">></p>
+                </button>
+            </div>
+            
+          </header>
+          <div class="divider"></div>  
+
+          <div class="calendar">
+            <div class="calendar-header" id="calendarHeader"></div>
+            <div class="calendar-container">
+              <div class="time-labels" id="timeLabels"></div>
+              <div class="calendar-grid" id="calendarGrid"></div>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </section>
+  </body>
+  <script src="./script.js" type="module"></script>
+</html>
