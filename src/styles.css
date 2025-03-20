@@ -78,7 +78,7 @@ html{
 .calendar-header {
     display: flex;
     justify-content: space-between;
-    margin-left: 80px;
+    margin-left: 150px;
 }
   
 .calendar-day-header {
@@ -121,7 +121,7 @@ html{
 .time-labels {
     display: flex;
     flex-direction: column;
-    width: 80px;
+    width: 150px;
 }
 
 .time-label {
@@ -199,4 +199,25 @@ html{
     position: absolute;
     z-index: 1;
     left: 50%
+}
+
+@media (max-width: 768px) {
+    .calendar-header {
+        margin-left: 40px;
+    }
+    .day-number {
+        font-size: medium;
+    }
+    .month-name {
+        font-size: small;
+    }
+    .day-name {
+        font-size: small
+    }
+    .button-text{
+        font-size: small;
+    }
+    .time-labels{
+        width: 40px;
+    }
 }
