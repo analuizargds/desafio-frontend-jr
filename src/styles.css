@@ -179,7 +179,11 @@ html{
 }
 
 .current-day .day-number {
-    color: blue;
+    color: #5856D6;
+}
+
+.current-month .month-name {
+    color: #5856D6;
 }
 
 .time-indicator {
