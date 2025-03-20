@@ -39,7 +39,7 @@ html{
 }
 
 .title{
-    margin-top: 40px;
+    margin-top: 20px;
     margin-left: 48px;
     font-size: 40px;
 }
@@ -47,7 +47,7 @@ html{
 .divider{
     height: 2px;
     background-color: #f2f2f7;
-    margin-top: 38px;
+    margin-top: 20px;
 }
 
 .button-container{
@@ -57,7 +57,7 @@ html{
 
 .button{
     color: #F2F2F7;
-    margin-top: 40px;
+    margin-top: 20px;
     border-radius: 18px;
     border-width: 0px;
     padding: 14px 20px 14px 20px;
@@ -92,6 +92,7 @@ html{
 .month-name {
     font-size: 14px;
     color: #666;
+    margin-top: 10px;
 }
   
 .day-number {
@@ -104,6 +105,7 @@ html{
     font-size: 12px;
     text-transform: uppercase;
     color: #888;
+    margin-bottom: 10px;
 }
 
 .calendar-container {
@@ -138,6 +140,7 @@ html{
     flex-grow: 1;
     border-top: 2px solid #F2F2F7;
     border-left: 2px solid #F2F2F7;
+    overflow-y: auto;
 }
 
 .calendar-cell {
@@ -163,4 +166,23 @@ html{
 
 .current-day .day-number {
     color: blue;
+}
+
+.time-indicator {
+    background-color: #5856D6;
+    height: 3px;
+    width: 710%;
+    position: absolute;
+    border-radius: 5px;
+    z-index: 1;
+}
+
+.indicator-dot {
+    width: 10px;
+    height: 10px;
+    background-color: #5856D6;
+    border-radius: 50%;
+    position: absolute;
+    z-index: 1;
+    left: 50%
 }

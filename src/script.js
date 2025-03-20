@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             const monthDiv = document.createElement("div");
             monthDiv.classList.add("month-name");
-            monthDiv.textContent = date.toLocaleString('default', { month: 'short' })
+            monthDiv.textContent = date.toLocaleString('default', { month: 'short' }).replace('.', '').toUpperCase();
 
             const dayNumDiv = document.createElement("div");
             dayNumDiv.classList.add("day-number");
@@ -63,6 +63,23 @@ document.addEventListener("DOMContentLoaded", function () {
             calendarGrid.appendChild(cell);
         }
 
+        const todayIndex = today.getDay()
+        const hourIndex = today.getHours()
+        const cellIndex = todayIndex + 7 * hourIndex
+        const minutes = today.getMinutes()
+        const minutesPosition = (minutes * 25)/30
+
+        const timeIndicator = document.createElement("div");
+        timeIndicator.classList.add("time-indicator")
+        timeIndicator.style.top = `${minutesPosition}px`;
+
+        const dot = document.createElement("div");
+        dot.style.top = `${minutesPosition - 3}px`;
+        dot.classList.add("indicator-dot");
+
+        calendarGrid.children[(hourIndex * 7)].appendChild(timeIndicator);
+        calendarGrid.children[cellIndex].appendChild(dot);
+
         loadEvents();
     }
 
@@ -73,26 +90,24 @@ document.addEventListener("DOMContentLoaded", function () {
                 data.eventos.forEach(evento => {
                     const startTime = new Date(evento.data_inicio);
                     const endTime = new Date(evento.data_fim);
-                    const name = evento.nome
 
                     if (startTime >= startOfWeek && startTime < new Date(startOfWeek.getTime() + 7 * 86400000)) {
                         const dayIndex = (startTime.getDay());
                         const startHour = startTime.getHours();
-                        console.log('nome: ', name)
-                        console.log("data de inicio", startTime)
-                        console.log('hour ', startHour)
                         const duration = (endTime - startTime) / (1000 * 60 * 60);
+                        const minutes = startTime.getMinutes()
 
                         const hourIndex = startHour;
                         const cellIndex = dayIndex + 7 * hourIndex;
 
+                        const yposition = (minutes * 25)/30
+
                         const eventDiv = document.createElement("div");
                         eventDiv.classList.add("event");
                         eventDiv.textContent = evento.nome;
+                        eventDiv.style.top = `${yposition}px`;
                         eventDiv.style.height = `${duration * 50}px`;
                         eventDiv.style.backgroundColor = evento.cor;
-
-                        
 
                         if (calendarGrid.children[cellIndex]) {
                             calendarGrid.children[cellIndex].appendChild(eventDiv);
