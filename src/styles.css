@@ -159,9 +159,16 @@ html{
     width: 90%;
     padding: 5px;
     border-radius: 5px;
-    color: white;
+    color: #3D3D3D;
+    font-weight: 500;
     font-size: 12px;
     z-index: 1;
+    opacity: 0.5;
+    transition: opacity 0.2s ease-in-out;
+}
+
+.event:hover {
+    opacity: 1;
 }
 
 .current-day .day-number {
