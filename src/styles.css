@@ -36,6 +36,7 @@ html{
     justify-content: space-between;
     align-items: center;
     width: 100%;
+    flex-wrap: wrap
 }
 
 .title{
@@ -165,6 +166,8 @@ html{
     z-index: 1;
     opacity: 0.5;
     transition: opacity 0.2s ease-in-out;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .event:hover {
