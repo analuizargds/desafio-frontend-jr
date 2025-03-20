@@ -9,57 +9,69 @@ document.addEventListener("DOMContentLoaded", function () {
     let startOfWeek = new Date(today);
     startOfWeek.setDate(today.getDate() - today.getDay());
 
+    function createElementWithClass(tag, className) {
+        const element = document.createElement(tag);
+        element.classList.add(className);
+        return element;
+    }
+
+    function createDayHeader(date) {
+
+        const dayDiv = createElementWithClass("div", "calendar-day-header");
+
+        if (date.toDateString() === new Date().toDateString()) {
+            dayDiv.classList.add("current-day");
+        }
+
+        const monthDiv = createElementWithClass("div", "month-name")
+        const month = date.toLocaleString('default', { month: 'short' }).replace('.', '');
+        monthDiv.textContent = month.charAt(0).toUpperCase() + month.slice(1).toLowerCase();
+
+        const dayNumDiv = createElementWithClass("div", "day-number");
+        dayNumDiv.textContent = date.getDate();
+
+        const dayNameDiv = createElementWithClass("div", "day-name");
+        dayNameDiv.textContent = weekDays[date.getDay()];
+
+        dayDiv.appendChild(monthDiv);
+        dayDiv.appendChild(dayNumDiv);
+        dayDiv.appendChild(dayNameDiv);
+
+        return dayDiv;
+    }
+
+    function renderWeekDays() {
+        calendarHeader.innerHTML = "";
+        const fragment = document.createDocumentFragment();
+        for (let i = 0; i < 7; i++) {
+            const date = new Date(startOfWeek);
+            date.setDate(startOfWeek.getDate() + i);
+            const dayDiv = createDayHeader(date);
+            fragment.appendChild(dayDiv)
+        }
+        calendarHeader.appendChild(fragment);
+    }
+
     function renderCalendar() {
         calendarHeader.innerHTML = "";
         calendarGrid.innerHTML = "";
 
-        for (let i = 0; i < 7; i++) {
-            const date = new Date(startOfWeek);
-            date.setDate(startOfWeek.getDate() + i);
-
-            const dayDiv = document.createElement("div");
-
-            if (date.toDateString() === new Date().toDateString()) {
-                dayDiv.classList.add("current-day");
-            }
-            
-            dayDiv.classList.add("calendar-day-header");
-
-            const monthDiv = document.createElement("div");
-            monthDiv.classList.add("month-name");
-            monthDiv.textContent = date.toLocaleString('default', { month: 'short' }).replace('.', '').toUpperCase();
-
-            const dayNumDiv = document.createElement("div");
-            dayNumDiv.classList.add("day-number");
-            dayNumDiv.textContent = date.getDate();
-
-            const dayNameDiv = document.createElement("div");
-            dayNameDiv.classList.add("day-name");
-            dayNameDiv.textContent = weekDays[date.getDay()];
-
-            dayDiv.appendChild(monthDiv);
-            dayDiv.appendChild(dayNumDiv);
-            dayDiv.appendChild(dayNameDiv);
-            calendarHeader.appendChild(dayDiv);
-        }
+        renderWeekDays()
 
         const timeLabels = document.getElementById("timeLabels");
         timeLabels.innerHTML = "";
         
-        const emptyLabel = document.createElement("div");
-        emptyLabel.classList.add("time-label-empty");
+        const emptyLabel = createElementWithClass("div", "time-label-empty");
         timeLabels.appendChild(emptyLabel);
 
-        for (let i = 0; i < 24; i++) {
-            const timeLabel = document.createElement("div");
-            timeLabel.classList.add("time-label");
+        for (let i = 0; i < hours.length; i++) {
+            const timeLabel = createElementWithClass("div", "time-label");
             timeLabel.textContent = hours[i];
             timeLabels.appendChild(timeLabel);
         }
 
         for (let i = 0; i < 7 * 24; i++) {
-            const cell = document.createElement("div");
-            cell.classList.add("calendar-cell");
+            const cell = createElementWithClass("div", "calendar-cell");
             calendarGrid.appendChild(cell);
         }
 
@@ -69,13 +81,11 @@ document.addEventListener("DOMContentLoaded", function () {
         const minutes = today.getMinutes()
         const minutesPosition = (minutes * 25)/30
 
-        const timeIndicator = document.createElement("div");
-        timeIndicator.classList.add("time-indicator")
+        const timeIndicator = createElementWithClass("div", "time-indicator");
         timeIndicator.style.top = `${minutesPosition}px`;
 
-        const dot = document.createElement("div");
+        const dot = createElementWithClass("div", "indicator-dot");
         dot.style.top = `${minutesPosition - 3}px`;
-        dot.classList.add("indicator-dot");
 
         calendarGrid.children[(hourIndex * 7)].appendChild(timeIndicator);
         calendarGrid.children[cellIndex].appendChild(dot);
@@ -102,8 +112,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                         const yposition = (minutes * 25)/30
 
-                        const eventDiv = document.createElement("div");
-                        eventDiv.classList.add("event");
+                        const eventDiv = createElementWithClass("div", "event");
                         eventDiv.textContent = evento.nome;
                         eventDiv.style.top = `${yposition}px`;
                         eventDiv.style.height = `${duration * 50}px`;
