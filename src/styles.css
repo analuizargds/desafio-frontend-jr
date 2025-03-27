@@ -227,6 +227,12 @@ html{
 .otherYear {
     color:#7F7F7F;
     font-size: 15px;
+    transition: font-size 0.2s ease-in-out;
+}
+
+.otherYear:hover {
+    font-size: 20px;
+    
 }
 
 .year-button {
