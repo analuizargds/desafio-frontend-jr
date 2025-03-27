@@ -62,7 +62,8 @@ html{
     border-radius: 18px;
     border-width: 0px;
     padding: 14px 20px 14px 20px;
-    margin-right: 15px;
+    margin-right: 8px;
+    margin-left: 8px;
 }
 
 .button-text{
@@ -203,6 +204,37 @@ html{
     position: absolute;
     z-index: 1;
     left: 50%
+}
+
+.select-button {
+    border-color: #5856D6;
+    margin-top: 20px;
+    height: 30px;
+    background-color: #FFFFFF;
+    border-radius: 10%;
+    font-size: medium;
+}
+
+.optionText {
+    font-size: medium;
+}
+
+.todayYear {
+    color:#5856D6;
+    font-size: 30px;
+}
+
+.otherYear {
+    color:#7F7F7F;
+    font-size: 15px;
+}
+
+.year-button {
+    background-color: transparent;
+    border-color: transparent;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 20px;
 }
 
 @media (max-width: 768px) {

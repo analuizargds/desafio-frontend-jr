@@ -1,9 +1,14 @@
 document.addEventListener("DOMContentLoaded", function () {
     const calendarHeader = document.getElementById("calendarHeader");
     const calendarGrid = document.getElementById("calendarGrid");
+    const select = document.getElementById("monthSelect")
+    const nextYearButton = document.getElementById("nextYearText")
+    const prevYearButton = document.getElementById("prevYearText")
+    const todayYearButton = document.getElementById("todayYearText")
 
     const weekDays = ["SUN", "MON", "MAR", "WED", "THU", "FRI", "SAT"];
     const hours = ["1am", "2am", "3am", "4am", "5am", "6am", "7am", "8am", "9am", "10am", "11am", "12am", "1pm", "2pm", "3pm", "4pm", "5pm", "6pm", "7pm", "8pm", "9pm", "10pm", "11pm", "12pm"];
+    const months = ["JAN", "FEV", "MAR", "ABR", "MAIO", "JUN", "JUL", "AGO", "SET", "OUT", "NOV", "DEZ"];
     
     const today = new Date();
     let startOfWeek = new Date(today);
@@ -56,6 +61,10 @@ document.addEventListener("DOMContentLoaded", function () {
         calendarHeader.innerHTML = "";
         calendarGrid.innerHTML = "";
 
+        nextYearButton.textContent = startOfWeek.getFullYear() + 1
+        prevYearButton.textContent = startOfWeek.getFullYear() - 1
+        todayYearButton.textContent = startOfWeek.getFullYear()
+
         renderWeekDays()
 
         const timeLabels = document.getElementById("timeLabels");
@@ -91,6 +100,7 @@ document.addEventListener("DOMContentLoaded", function () {
         calendarGrid.children[cellIndex].appendChild(dot);
 
         loadEvents();
+        renderSelectOption();
     }
 
     function loadEvents() {
@@ -128,6 +138,18 @@ document.addEventListener("DOMContentLoaded", function () {
             });
     }
 
+    function renderSelectOption() {
+        const fragment = document.createDocumentFragment()
+        for(let i = 0; i < months.length; i++) {
+            const option = createElementWithClass("option", "optionText");
+            option.textContent = months[i];
+            option.value = i
+            fragment.appendChild(option)
+        }
+        select.appendChild(fragment)
+        select.value = startOfWeek.getMonth()
+    };
+
     document.getElementById("prevWeek").addEventListener("click", () => {
         startOfWeek.setDate(startOfWeek.getDate() - 7);
         renderCalendar();
@@ -143,6 +165,22 @@ document.addEventListener("DOMContentLoaded", function () {
         startOfWeek.setDate(today.getDate() - today.getDay());
         renderCalendar();
     });
+
+    document.getElementById("prevYear").addEventListener("click", () => {
+        startOfWeek.setFullYear(startOfWeek.getFullYear() - 1);
+        renderCalendar();
+    })
+
+    document.getElementById("nextYear").addEventListener("click", () => {
+        startOfWeek.setFullYear(startOfWeek.getFullYear() + 1);
+        renderCalendar();
+    })
+
+    document.getElementById("monthSelect").addEventListener("change", () => {
+        startOfWeek.setMonth(select.value)
+        console.log(startOfWeek)
+        renderCalendar();
+    })
 
     renderCalendar();
 });

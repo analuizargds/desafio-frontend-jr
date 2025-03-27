@@ -11,7 +11,20 @@
       <div class="inner">
         <header class="header-container">
           <h1 class="title">Calendar</h1>
+          <select id="monthSelect" class="select-button">
+            <option id="month" class="optionText"></option>
+          </select>
           <div class="button-container">
+            <button id="prevYear" class="year-button">
+              <p class="otherYear" id="prevYearText"></p>
+            </button>
+            <button id="todayYear" class="year-button">
+              <p class="todayYear" id="todayYearText"></p>
+            </button>
+            <button id="nextYear" class="year-button">
+              <p class="otherYear" id="nextYearText"></p>
+            </button>
+            </button>
             <button id="prevWeek" class="button">
               <p class="button-text"><</p>
             </button>
@@ -21,6 +34,7 @@
             <button id="nextWeek" class="button">
               <p class="button-text">></p>
             </button>
+            
           </div>          
         </header>
         <div class="divider"></div>  
