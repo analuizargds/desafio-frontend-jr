@@ -209,10 +209,13 @@ html{
 .select-button {
     border-color: #5856D6;
     margin-top: 20px;
-    height: 30px;
+    height: 50px;
     background-color: #FFFFFF;
-    border-radius: 10%;
-    font-size: medium;
+    border-radius: 8%;
+    font-size: 20px;
+    padding: 5px;
+    border-width: 2px;
+    font-weight: 600;
 }
 
 .optionText {
