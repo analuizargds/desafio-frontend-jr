@@ -178,7 +178,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     document.getElementById("monthSelect").addEventListener("change", () => {
         startOfWeek.setMonth(select.value)
-        console.log(startOfWeek)
+        startOfWeek.setDate(startOfWeek.getDate() - startOfWeek.getDay())
         renderCalendar();
     })
 
