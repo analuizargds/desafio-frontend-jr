@@ -60,6 +60,7 @@ document.addEventListener("DOMContentLoaded", function () {
     function renderCalendar() {
         calendarHeader.innerHTML = "";
         calendarGrid.innerHTML = "";
+        select.innerHTML = "";
 
         nextYearButton.textContent = startOfWeek.getFullYear() + 1
         prevYearButton.textContent = startOfWeek.getFullYear() - 1
