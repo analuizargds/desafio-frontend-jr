@@ -105,7 +105,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function loadEvents() {
-        fetch("../public/eventos.json")
+        fetch("./public/eventos.json")
             .then(response => response.json())
             .then(data => {
                 data.eventos.forEach(evento => {
