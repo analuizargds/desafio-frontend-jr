@@ -59,6 +59,96 @@
       "data_inicio": "2025-05-30T14:00",
       "data_fim": "2025-05-30T16:00",
       "cor": "#E74C3C"
+    },
+    {
+      "nome": "Lançamento de Funcionalidade",
+      "data_inicio": "2025-03-25T13:00",
+      "data_fim": "2025-03-25T14:00",
+      "cor": "#28A745"
+    },
+    {
+      "nome": "Hackathon Interno",
+      "data_inicio": "2025-04-03T08:00",
+      "data_fim": "2025-04-03T18:00",
+      "cor": "#9B59B6"
+    },
+    {
+      "nome": "Palestra de UX/UI",
+      "data_inicio": "2025-04-10T14:00",
+      "data_fim": "2025-04-10T16:00",
+      "cor": "#FF6F61"
+    },
+    {
+      "nome": "Reunião de Alinhamento de Produto",
+      "data_inicio": "2025-04-21T10:30",
+      "data_fim": "2025-04-21T11:30",
+      "cor": "#3498DB"
+    },
+    {
+      "nome": "Recesso de Feriado",
+      "data_inicio": "2025-05-01T00:00",
+      "data_fim": "2025-05-01T23:59",
+      "cor": "#F1C40F"
+    },
+    {
+      "nome": "Entrega de Projeto Alpha",
+      "data_inicio": "2025-05-15T09:00",
+      "data_fim": "2025-05-15T12:00",
+      "cor": "#1ABC9C"
+    },
+    {
+      "nome": "Avaliação Semestral",
+      "data_inicio": "2025-05-30T14:00",
+      "data_fim": "2025-05-30T16:00",
+      "cor": "#E74C3C"
+    },
+    {
+      "nome": "Workshop de Inteligência Artificial",
+      "data_inicio": "2025-04-10T10:00",
+      "data_fim": "2025-04-10T12:00",
+      "cor": "#8E44AD"
+    },
+    {
+      "nome": "Reunião de Estratégia de Marketing",
+      "data_inicio": "2025-04-15T14:00",
+      "data_fim": "2025-04-15T15:30",
+      "cor": "#2980B9"
+    },
+    {
+      "nome": "Sessão de Brainstorming",
+      "data_inicio": "2025-06-20T09:00",
+      "data_fim": "2025-06-20T11:00",
+      "cor": "#F39C12"
+    },
+    {
+      "nome": "Apresentação de Resultados Trimestrais",
+      "data_inicio": "2025-07-05T16:00",
+      "data_fim": "2025-07-05T17:30",
+      "cor": "#C0392B"
+    },
+    {
+      "nome": "Treinamento de Segurança da Informação",
+      "data_inicio": "2025-07-12T13:00",
+      "data_fim": "2025-07-12T15:00",
+      "cor": "#16A085"
+    },
+    {
+      "nome": "Reunião de Feedback",
+      "data_inicio": "2025-07-20T11:00",
+      "data_fim": "2025-07-20T12:00",
+      "cor": "#34495E"
+    },
+    {
+      "nome": "Hackathon Externo",
+      "data_inicio": "2025-08-01T09:00",
+      "data_fim": "2025-08-01T18:00",
+      "cor": "#E67E22"
+    },
+    {
+      "nome": "Reunião de Encerramento de Projeto",
+      "data_inicio": "2025-08-15T10:00",
+      "data_fim": "2025-08-15T11:30",
+      "cor": "#2ECC71"
     }
   ]
 }
